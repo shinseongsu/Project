@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Movie">
+	<resultMap type="movie" id="movieResult">
+		<result property="title" column="title" />
+		<result property="rate" column="rate" />
+		<result property="startdate" column="startdate" />
+		<result property="enddate" column="enddate" />
+		<result property="director" column="director" />
+		<result property="actor" column="actor" />
+		<result property="genre" column="genre" />
+		<result property="age" column="age" />
+		<result property="showTime" column="showTime" />
+		<result property="language" column="language" />
+		<result property="explain" column="explain" />
+		<result property="explain2" column="explain2" />
+		<result property="image" column="image" />
+	</resultMap>
+
+	<select id = "ListMovie" resultType="movie">
+		select * from (select * from Movie order by rate DESC) where <![CDATA[ ROWNUM <= 10 ]]>
+	</select>
+	
+	<select id = "getMovie" parameterType="String" resultType="movie">
+		select * from Movie where title = #{title}
+	</select>
+
+</mapper>
+

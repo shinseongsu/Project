@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+  
+ <!--  hasRole('ROLE_ADMIN') -->
+ <http auto-config="true" use-expressions="true">
+	<intercept-url pattern="/**" access="hasRole('ROLE_ADMIN')" />
+	<intercept-url pattern="/Main.jsp" access="permitAll" />
+                    
+   <logout logout-url="/logout.do"
+                logout-success-url="/Main.jsp" />
+                
+ </http>
+
+		 
+ <!-- <authentication-manager> 
+ 	<authentication-provider>
+ 		 <jdbc-user-service data-source-ref="dataSource" id="userService"
+		 users-by-username-query="select id as username, password as password, enabled as enabled from member where id=?"
+		 authorities-by-username-query="select id as username, role AS authority from member where id=?" /> 
+	 </authentication-provider>
+ </authentication-manager> -->
+ 
+  <authentication-manager>
+ <authentication-provider>
+ 	<user-service> 
+ 		<user name="guest" password="{noop}guest" authorities="ROLE_USER"/> 
+ 		<user name="admin" password="{noop}admin" authorities="ROLE_ADMIN"/> 
+ 	</user-service>
+ </authentication-provider>
+</authentication-manager>
+ 
+	
+</beans:beans>

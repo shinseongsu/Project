@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration 
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+  <typeAliases>
+  	<typeAlias  alias="member" 
+  	                  type="com.spring.movie.member.MemberVO"/>
+  	<typeAlias alias="movie"
+  					 type="com.spring.movie.Movie.MovieVO"/>
+  	<typeAlias alias="board"
+  					 type="com.spring.movie.event.BoardBean" />
+  	<typeAlias alias="paging"
+  					 type="com.spring.movie.event.PagingVO"/>
+  </typeAliases>
+  
+   <mappers>
+   		<mapper resource="mappings/member-mapping.xml"/>
+   		<mapper resource="mappings/movie-mapper.xml" />
+   		<mapper resource="mappings/event-mapper.xml" />
+   </mappers>
+</configuration>
