@@ -115,7 +115,33 @@
 	th{
 		color: #008299;
 	}
+	footer{
+		width: 100%;
+		background-color: #ccc;
+	}
+	.footer{
+		padding: 10px;
+		width:100%;
+		text-align: center;
+	}
+	.footer ul li{
+		display: inline-block;
+	}
+	.footer3{
+		width: 80%;
+		margin:0 auto;
+	}
+	.footer1{
+		margin-left: 80px;
+		float:left;
+		width: 60%;
+	}
+	.footer2{
+		float: left;
+		width: 20%;
+	}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div id="menu">
@@ -208,8 +234,79 @@
 		<div class="top">
 			<div class="symbol"><img src="images/arrow.png"></div> &nbsp; &nbsp;<b>만든 사람들</b>
 		</div>
-		
+		<div class="margin"></div>
+		<div class="first">
+			<div class="inline">
+				<table class="inline_table">
+					<tr>
+						<th>감독</th>
+						<td>
+							${vo.directors}
+						</td>
+					</tr>
+					<tr>
+						<th>배우</th>
+						<c:forEach var="actors" items="${vo.actors}">
+							<td>
+								${actors}
+							</td>
+							<tr>
+							<th></th>
+						</c:forEach>
+					</tr>
+					<tr>
+						<th>배급사</th>
+						<c:forEach var="company" items="${vo.companyNm}" begin="1" end="1">
+								<td>
+									${company}
+								</td>
+						</c:forEach>
+					</tr>
+					<tr>
+						<th>수입사</th>
+						<c:forEach var="company" items="${vo.companyNm}" begin="2" end="2">
+							<td>
+								${company}
+							</td>
+						</c:forEach>
+					</tr>
+				</table>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="margin"></div>
+		<center>
+			<input type="button" value="뒤로가기" onclick="history.back();">
+		</center>
+		<div class="margin"></div>
 	</div>
+	<div class="clear"></div>
+	<footer>
+		<div class="footer">
+			<ul>
+				<li>회사소개</li> |
+				<li>광고/프로모션문의</li> |
+				<li>이용약관</li> |
+				<li>개인정보처리방침</li> |
+				<li>법적고지</li> |
+				<li>이메일무단수거거부</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div class="footer3">
+			<div class="footer1">
+				<p>(18321)경기도 화성시 봉담읍 와우로73번길 22, 임광아파트</p>
+				<p>대표이사:신성수 | 사업자등록번호: 123-12-12345 | 통신판매업신고번호:2018-서울구로-1234</p>
+				<p>개인정보보호 책임자:신성수 | 대표이메일:tlstjdtn321@naver.com | 고객센터:010-2083-4409</p>
+			</div>
+			<div class="footer2">
+				<i class="fa fa-facebook-square" style="font-size:48px;color:gray"></i>
+				<i class="fa fa-twitter-square" style="font-size:48px;color:gray"></i>
+				<i class="fa fa-youtube-play" style="font-size:48px;color:gray"></i>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</footer>
 </body>
 
 <script>

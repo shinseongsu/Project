@@ -1,12 +1,9 @@
 package com.spring.movie.view;
 
 import java.io.BufferedInputStream;
-import java.io.PrintWriter;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -24,7 +21,6 @@ import com.spring.movie.Movie.MovieCd;
 import com.spring.movie.Movie.MovieService;
 import com.spring.movie.Movie.MovieVO;
 import com.spring.movie.Movie.OpenApi;
-import com.sun.javafx.scene.paint.GradientUtils.Parser;
 
 @Controller
 public class MovieController {
